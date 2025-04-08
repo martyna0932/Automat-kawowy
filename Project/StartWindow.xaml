@@ -1,0 +1,26 @@
+﻿<Window x:Class="Project.StartWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Project"
+        mc:Ignorable="d"
+        Title="StartWindow" Height="600" Width="400"
+        >
+    <Grid>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock Text="Witaj w automacie kawowym" FontSize="20" FontWeight="Bold" Margin="0,20"/>
+            <Button Width="180" Height="70" Click="OrderCoffee_Click" Margin="0,10" VerticalContentAlignment="Center">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        
+                        <TextBlock Text="Złóż zamówienie" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+            <Button Content="Ustawienia" Width="180" Height="70" Click="SwitchUser_Click" Margin="0,10"/>
+            <Button Content="Wyjdź"  Width="180" Height="70" Click="Exit_Click" Margin="0,10"/>
+        </StackPanel>
+        
+    </Grid>
+</Window>
