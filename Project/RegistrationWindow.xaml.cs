@@ -13,7 +13,7 @@ namespace CoffeeOrderApp
             InitializeComponent();
         }
 
-  
+
 
         private void Register_Click(object sender, RoutedEventArgs e)
         {
@@ -31,12 +31,12 @@ namespace CoffeeOrderApp
                 return;
             }
 
-           
+
 
             // Sprawdzenie, czy użytkownik już istnieje
             using (var db = new CoffeeDbContext())
             {
-              
+
 
                 if (db.Users.Any(u => u.UserName == username))
                 {
@@ -49,7 +49,7 @@ namespace CoffeeOrderApp
                     Name = firstName,
                     Surname = lastName,
                     UserName = username,
-                    Password = password, 
+                    Password = password,
                     Role = "User",
                     LoyaltyPoints = 0
                 };
@@ -59,9 +59,19 @@ namespace CoffeeOrderApp
 
                 MessageBox.Show("Rejestracja zakończona sukcesem! Teraz możesz się zalogować.");
 
-              
+
                 this.Close();
             }
         }
+
+           private void Back_Click(object sender, RoutedEventArgs e)
+           {
+
+            LoginWindow loginWindow = new LoginWindow();
+            loginWindow.Show();
+            this.Close();
+             }
     }
+        
+    
 }

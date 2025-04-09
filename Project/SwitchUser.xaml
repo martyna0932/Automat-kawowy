@@ -27,7 +27,7 @@
                     VerticalAlignment="Center" Grid.Row="1">
             <Button Content="Historia kaw" Width="80" Height="60" Margin="10" Click="OrderHistory_Click"/>
             <Button Content="Logowanie" Width="80" Height="60" Margin="10" Click="User_Click"/>
-            <Button Content="Wyjdź" Width="80" Height="60" Margin="10"/>
+            <Button Content="Powrót" Width="80" Height="60" Margin="10" Click="Back_Click"/>
         </StackPanel>
 
        

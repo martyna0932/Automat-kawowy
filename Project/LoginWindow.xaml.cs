@@ -50,7 +50,13 @@ namespace CoffeeOrderApp
             this.Close();
         }
 
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
 
+            SwitchUser switchUser = new SwitchUser();
+            switchUser.Show();
+            this.Close();
+        }
 
 
 

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "OL6xvg7kEZM=",
+  "dgSpecHash": "ECvJtcY+Q+E=",
   "success": true,
-  "projectFilePath": "C:\\Users\\marty\\OneDrive\\Pulpit\\semestr 4\\Programowanie\\Project\\Project\\Project.csproj",
+  "projectFilePath": "C:\\Users\\marty\\OneDrive\\Pulpit\\semestr 4\\Programowanie\\Project\\Automat-kawowy\\Project\\Project.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\marty\\.nuget\\packages\\microsoft.data.sqlite.core\\8.0.14\\microsoft.data.sqlite.core.8.0.14.nupkg.sha512",
     "C:\\Users\\marty\\.nuget\\packages\\microsoft.entityframeworkcore\\8.0.14\\microsoft.entityframeworkcore.8.0.14.nupkg.sha512",

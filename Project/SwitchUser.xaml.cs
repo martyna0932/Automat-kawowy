@@ -45,5 +45,13 @@ namespace Project
             loginWindow.Show();
             this.Close();
         }
+
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+
+            StartWindow startWindow = new StartWindow();
+            startWindow.Show();
+            this.Close();
+        }
     }
 }
