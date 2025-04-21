@@ -59,7 +59,8 @@ namespace CoffeeOrderApp
 
                 MessageBox.Show("Rejestracja zakończona sukcesem! Teraz możesz się zalogować.");
 
-
+                LoginWindow loginWindow = new LoginWindow();
+                loginWindow.Show();
                 this.Close();
             }
         }

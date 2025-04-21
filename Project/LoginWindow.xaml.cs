@@ -31,9 +31,9 @@ namespace CoffeeOrderApp
                 {
                     MessageBox.Show($"Witaj, {user.UserName}!\nMasz {user.LoyaltyPoints} punktów.");
 
-                    MainWindow main = new MainWindow();
-                    main.Show();
-                    main.LoggedUserId = user.Id; 
+                    StartWindow startwindow = new StartWindow();
+                    startwindow.Show();
+                   // main.LoggedUserId = user.Id; 
                     this.Close();
                 }
                 else

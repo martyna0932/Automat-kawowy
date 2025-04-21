@@ -26,5 +26,13 @@ namespace Project
                 OrdersDataGrid.ItemsSource = orders;
             }
         }
+
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+
+            StartWindow startWindow = new StartWindow();
+            startWindow.Show();
+            this.Close();
+        }
     }
 }

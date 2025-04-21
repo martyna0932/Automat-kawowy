@@ -1,31 +1,83 @@
 ﻿<Window x:Class="CoffeeOrderApp.RegistrationWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Logowanie" Height="600" Width="400" WindowStartupLocation="CenterScreen">
+        Title="Logowanie / Rejestracja" Height="450" Width="400" WindowStartupLocation="CenterScreen"
+        Background="#FFFAFAFA">
+
+    <Window.Resources>
+        <!-- Drop shadow efekt -->
+        <DropShadowEffect x:Key="DropShadow" Color="#333" BlurRadius="10" ShadowDepth="2" Direction="270"/>
+
+        <!-- Styl przycisków -->
+        <Style x:Key="ModernButton" TargetType="Button">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#FF5A9BD5"/>
+            <Setter Property="Margin" Value="10,0,10,0"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Width" Value="130"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                CornerRadius="12"
+                                Effect="{StaticResource DropShadow}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Styl dla TextBoxów -->
+        <Style TargetType="TextBox">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Margin" Value="0,5,0,10"/>
+            <Setter Property="Padding" Value="8"/>
+        </Style>
+
+        <!-- Styl dla PasswordBox -->
+        <Style TargetType="PasswordBox">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Margin" Value="0,5,0,10"/>
+            <Setter Property="Padding" Value="8"/>
+        </Style>
+    </Window.Resources>
+
     <Grid Margin="20">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Zaloguj się lub zarejestruj" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+        <!-- Nagłówek -->
+        <TextBlock Text="🔐 Zaloguj się lub zarejestruj"
+                   FontSize="20" FontWeight="Bold"
+                   HorizontalAlignment="Center"
+                   Margin="0,0,0,20" Grid.Row="0"/>
 
-        <StackPanel Grid.Row="1" Margin="0,10">
+        <!-- Formularz -->
+        <StackPanel Grid.Row="1">
             <TextBlock Text="Imię:"/>
-            <TextBox x:Name="RegistrationNameTextBox" Margin="0,5"/>
+            <TextBox x:Name="RegistrationNameTextBox"/>
+
             <TextBlock Text="Nazwisko:"/>
-            <TextBox x:Name="RegistrationSurnameTextBox" Margin="0,5"/>
+            <TextBox x:Name="RegistrationSurnameTextBox"/>
+
             <TextBlock Text="Nazwa użytkownika:"/>
-            <TextBox x:Name="RegistrationUsernameTextBox" Margin="0,5"/>
-            <TextBlock Text="Hasło:" Margin="0,5"/>
-            <PasswordBox x:Name="RegistrationPasswordBox" Margin="0,5"/>
+            <TextBox x:Name="RegistrationUsernameTextBox"/>
+
+            <TextBlock Text="Hasło:"/>
+            <PasswordBox x:Name="RegistrationPasswordBox"/>
         </StackPanel>
 
-        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0" >
-            <Button Content="Zarejestruj się" Width="100" Click="Register_Click"/>
-            <Button Content="Powrót" Width="100" Click="Back_Click"/>
+        <!-- Przyciski -->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+            <Button Style="{StaticResource ModernButton}" Content="✅ Zarejestruj się" Click="Register_Click"/>
+            <Button Style="{StaticResource ModernButton}" Content="↩️ Powrót" Click="Back_Click" Background="IndianRed"/>
         </StackPanel>
     </Grid>
 </Window>

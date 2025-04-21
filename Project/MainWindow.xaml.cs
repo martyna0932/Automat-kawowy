@@ -58,6 +58,10 @@ namespace CoffeeOrderApp
 
                 MessageBox.Show($"Zamówienie: {order.Coffee}, {order.Milk}, {order.Syrup}\nCena: {order.Price:C2}\nZyskane punkty: {earnedPoints}", "Potwierdzenie zamówienia");
             }
+
+            StartWindow startWindow = new StartWindow();
+            startWindow.Show();
+            this.Close();
         }
         
     }
@@ -99,7 +103,7 @@ namespace CoffeeOrderApp
 
         public string SelectedUser
         {
-            get => _selectedUser;
+            get => _selectedUser ?? "Gość";
             set { _selectedUser = value; UpdatePriceAndImage(); NotifyPropertyChanged("SelectedUser"); }
         }
 

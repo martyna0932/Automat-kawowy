@@ -27,8 +27,8 @@ namespace Project
 
         private void OrderHistory_Click(object sender, RoutedEventArgs e)
         {
-            OrderHistoryWindow OrderHistoryWindow = new OrderHistoryWindow();  // Tworzy nowe okno zamówienia kawy
-            OrderHistoryWindow.Show();  // Otwiera okno
+            OrderHistoryWindow OrderHistoryWindow = new OrderHistoryWindow();  
+            OrderHistoryWindow.Show();  
             this.Close();
         }
 

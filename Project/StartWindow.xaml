@@ -5,22 +5,55 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project"
         mc:Ignorable="d"
-        Title="StartWindow" Height="600" Width="400"
-        >
+        Title="StartWindow" Height="600" Width="400" WindowStartupLocation="CenterScreen"
+        Background="#FFFAFAFA">
+
+    <Window.Resources>
+        <!-- ZDEFINIOWANE NA POCZĄTKU -->
+        <DropShadowEffect x:Key="DropShadow" Color="#333" BlurRadius="10" ShadowDepth="2" Direction="270"/>
+
+        <!-- Styl przycisków -->
+        <Style x:Key="ModernButton" TargetType="Button">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#FF5A9BD5"/>
+            <Setter Property="Margin" Value="0,10"/>
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="Height" Value="60"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                CornerRadius="12"
+                                SnapsToDevicePixels="True"
+                                Effect="{StaticResource DropShadow}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
     <Grid>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-            <TextBlock Text="Witaj w automacie kawowym" FontSize="20" FontWeight="Bold" Margin="0,20"/>
-            <Button Width="180" Height="70" Click="OrderCoffee_Click" Margin="0,10" VerticalContentAlignment="Center">
-                <Button.Content>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        
-                        <TextBlock Text="Złóż zamówienie" VerticalAlignment="Center"/>
-                    </StackPanel>
-                </Button.Content>
+            <TextBlock Text="☕ Witaj w automacie kawowym"
+                       FontSize="24"
+                       FontWeight="Bold"
+                       Foreground="#333"
+                       Margin="0,0,0,30"
+                       TextAlignment="Center"/>
+
+            <Button Style="{StaticResource ModernButton}" Click="OrderCoffee_Click">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock Text="🛒 Złóż zamówienie" VerticalAlignment="Center"/>
+                </StackPanel>
             </Button>
-            <Button Content="Ustawienia" Width="180" Height="70" Click="SwitchUser_Click" Margin="0,10"/>
-            <Button Content="Wyjdź"  Width="180" Height="70" Click="Exit_Click" Margin="0,10"/>
+
+            <Button Style="{StaticResource ModernButton}" Content="⚙️ Ustawienia" Click="SwitchUser_Click"/>
+            <Button Style="{StaticResource ModernButton}" Content="❌ Wyjdź" Click="Exit_Click" Background="IndianRed"/>
         </StackPanel>
-        
     </Grid>
 </Window>
