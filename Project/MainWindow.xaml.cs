@@ -1,35 +1,37 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Windows;
+using CoffeeOrderApp.Repositories;
+using CoffeeOrderApp.Models;
 using Microsoft.EntityFrameworkCore;
-using System.Windows.Media;
 using Project;
+using System.ComponentModel;
+
 
 namespace CoffeeOrderApp
 {
     public partial class MainWindow : Window
     {
         public int LoggedUserId { get; set; }
+        private readonly IOrderRepository _orderRepository;
+        private readonly IUserRepository _userRepository;
+
         public MainWindow()
         {
             InitializeComponent();
             DataContext = new CoffeeViewModel();
-            using (var db = new CoffeeDbContext())
-            {
-                db.Database.EnsureCreated();
-            }
-           
+
+            // Użycie repozytoriów wstrzykiwanych do konstruktora
+            _orderRepository = new OrderRepository(new CoffeeDbContext());
+            _userRepository = new UserRepository(new CoffeeDbContext());
         }
-     
+
         private void OrderButton_Click(object sender, RoutedEventArgs e)
         {
             var viewModel = DataContext as CoffeeViewModel;
 
             if (viewModel != null)
             {
-                
                 var order = new Order
                 {
                     Coffee = viewModel.SelectedCoffee,
@@ -37,33 +39,30 @@ namespace CoffeeOrderApp
                     Syrup = viewModel.SelectedSyrup,
                     Price = viewModel.TotalPrice,
                     OrderDate = DateTime.Now,
-                    UserId = 1 
+                    UserId = LoggedUserId
                 };
 
                 int earnedPoints = viewModel.EarnedPoints;
 
-                using (var dbContext = new CoffeeDbContext())
+                // Dodajemy zamówienie przy pomocy repozytorium
+                _orderRepository.AddOrder(order);
+
+                // Aktualizujemy punkty lojalnościowe użytkownika
+                var user = _userRepository.GetUserById(LoggedUserId);
+                if (user != null)
                 {
-                    dbContext.Orders.Add(order);
-
-                  var user = dbContext.Users.FirstOrDefault(u => u.Id == LoggedUserId);
-                    if (user != null)
-                    {
-                        user.LoyaltyPoints += earnedPoints; 
-                    }
-
-                   dbContext.SaveChanges();
+                    user.LoyaltyPoints += earnedPoints;
+                    _userRepository.UpdateUser(user); // Aktualizujemy użytkownika
                 }
-
 
                 MessageBox.Show($"Zamówienie: {order.Coffee}, {order.Milk}, {order.Syrup}\nCena: {order.Price:C2}\nZyskane punkty: {earnedPoints}", "Potwierdzenie zamówienia");
             }
 
+            // Przechodzimy do ekranu startowego
             StartWindow startWindow = new StartWindow();
             startWindow.Show();
             this.Close();
         }
-        
     }
 
     public class CoffeeViewModel : INotifyPropertyChanged
@@ -112,17 +111,17 @@ namespace CoffeeOrderApp
             get => _totalPrice;
             set { _totalPrice = value; NotifyPropertyChanged("TotalPrice"); }
         }
+
         public int EarnedPoints
         {
             get => _earnedPoints;
             set { _earnedPoints = value; NotifyPropertyChanged("EarnedPoints"); }
         }
 
-
         public string CoffeeImage
         {
             get => _coffeeImage;
-            set 
+            set
             {
                 if (_coffeeImage != value)
                 {
@@ -161,7 +160,7 @@ namespace CoffeeOrderApp
                 var users = db.Users.ToList();
                 foreach (var user in users)
                 {
-                    User.Add(user.UserName); 
+                    User.Add(user.UserName);
                 }
             }
         }
@@ -169,7 +168,6 @@ namespace CoffeeOrderApp
         private void UpdatePriceAndImage()
         {
             TotalPrice = 0.0m;
-
 
             if (SelectedCoffee == "Espresso")
             {
@@ -188,56 +186,19 @@ namespace CoffeeOrderApp
             }
             EarnedPoints = (int)(TotalPrice / 5);
 
-            if (!string.IsNullOrEmpty(SelectedMilk) && (SelectedMilk=="Oat")) TotalPrice += 1.0m;
+            if (!string.IsNullOrEmpty(SelectedMilk) && (SelectedMilk == "Oat")) TotalPrice += 1.0m;
             if (!string.IsNullOrEmpty(SelectedMilk) && (SelectedMilk == "Almond")) TotalPrice += 1.05m;
             if (!string.IsNullOrEmpty(SelectedMilk) && (SelectedMilk == "Regular")) TotalPrice += 1.25m;
 
-        
-            if (!string.IsNullOrEmpty(SelectedSyrup) && (SelectedSyrup=="Vanilla")) TotalPrice += 0.25m;
+            if (!string.IsNullOrEmpty(SelectedSyrup) && (SelectedSyrup == "Vanilla")) TotalPrice += 0.25m;
             if (!string.IsNullOrEmpty(SelectedSyrup) && (SelectedSyrup == "Caramel")) TotalPrice += 0.3m;
             if (!string.IsNullOrEmpty(SelectedSyrup) && (SelectedSyrup == "Hazelnut")) TotalPrice += 0.45m;
-
         }
 
         private void NotifyPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-    }
-
-    public class CoffeeDbContext : DbContext
-    {
-        public DbSet<User> Users { get; set; }
-        public DbSet<Order> Orders { get; set; }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlite("Data Source=coffee.db");
-        }
-    }
-
-
-
-    public class User
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Surname { get; set; }
-        public string Password { get; set; }
-        public string UserName { get; set; } 
-        public string Role { get; set; }
-        public int LoyaltyPoints { get; set; }
-    }
-
-    public class Order
-    {
-        public int Id { get; set; }
-        public string Coffee { get; set; }
-        public string Milk { get; set; }
-        public string Syrup { get; set; }
-        public decimal Price { get; set; }
-        public DateTime OrderDate { get; set; }
-        public int UserId { get; set; }
     }
 
 

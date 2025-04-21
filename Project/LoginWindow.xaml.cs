@@ -1,6 +1,8 @@
 ﻿using Project;
 using System.Linq;
 using System.Windows;
+using CoffeeOrderApp.Repositories;
+using CoffeeOrderApp.Models;
 
 namespace CoffeeOrderApp
 

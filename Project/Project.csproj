@@ -10,7 +10,6 @@
 
   <ItemGroup>
     <None Remove="Gifs\turn-left.gif" />
-    <None Remove="icons\go_back.png" />
     <None Remove="Images\kafka1.jpg" />
     <None Remove="Images\kafka2.jpg" />
     <None Remove="Images\kafka3.jpg" />
@@ -21,7 +20,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="icons\go_back.png" />
     <Resource Include="Images\kafka1.jpg" />
     <Resource Include="Images\kafka2.jpg" />
     <Resource Include="Images\kafka3.jpg" />

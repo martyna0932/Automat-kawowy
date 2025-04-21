@@ -4,6 +4,8 @@ using System.Windows;
 using System.Collections.Generic; // Dodane, ponieważ będziemy używać List<>
 using Project;
 using CoffeeOrderApp;
+using CoffeeOrderApp.Repositories;
+using CoffeeOrderApp.Models;
 
 namespace Project
 {

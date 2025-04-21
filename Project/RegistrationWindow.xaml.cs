@@ -3,6 +3,8 @@ using System;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using CoffeeOrderApp.Repositories;
+using CoffeeOrderApp.Models;
 
 namespace CoffeeOrderApp
 {
