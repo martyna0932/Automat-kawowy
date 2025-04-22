@@ -7,5 +7,7 @@ namespace CoffeeOrderApp.Repositories
     {
         void AddOrder(Order order);
         List<Order> GetOrdersByUserId(int userId);
+        List<Order> GetAllOrders();
+
     }
 }

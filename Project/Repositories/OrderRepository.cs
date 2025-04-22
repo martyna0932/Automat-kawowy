@@ -24,5 +24,11 @@ namespace CoffeeOrderApp.Repositories
         {
             return _context.Orders.Where(o => o.UserId == userId).ToList();
         }
+
+        public List<Order> GetAllOrders()
+        {
+            return _context.Orders.ToList();
+        }
+
     }
 }

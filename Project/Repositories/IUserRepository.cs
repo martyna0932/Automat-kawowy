@@ -9,5 +9,11 @@ namespace CoffeeOrderApp.Repositories
         User GetUserByUsername(string username);
         void UpdateUser(User user);
         List<User> GetAllUsers();
+        User GetUserByCredentials(string username, string password);
+        void AddUser(User user);
+
+
     }
+
+
 }

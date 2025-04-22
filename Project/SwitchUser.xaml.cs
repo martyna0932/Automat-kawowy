@@ -15,9 +15,7 @@ using System.Windows.Shapes;
 
 namespace Project
 {
-    /// <summary>
-    /// Logika interakcji dla klasy SwitchUser.xaml
-    /// </summary>
+
     public partial class SwitchUser : Window
     {
         public SwitchUser()

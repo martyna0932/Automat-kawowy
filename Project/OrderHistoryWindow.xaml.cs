@@ -1,9 +1,4 @@
-﻿using System;
-using System.Linq;
-using System.Windows;
-using System.Collections.Generic; // Dodane, ponieważ będziemy używać List<>
-using Project;
-using CoffeeOrderApp;
+﻿using System.Windows;
 using CoffeeOrderApp.Repositories;
 using CoffeeOrderApp.Models;
 
@@ -11,29 +6,25 @@ namespace Project
 {
     public partial class OrderHistoryWindow : Window
     {
+        private readonly IOrderRepository _orderRepository;
+
         public OrderHistoryWindow()
         {
             InitializeComponent();
+            _orderRepository = new OrderRepository(new CoffeeDbContext());
             LoadOrderHistory();
         }
 
         private void LoadOrderHistory()
         {
-            using (var dbContext = new CoffeeDbContext())
-            {
-                // Pobierz wszystkie zamówienia z bazy danych
-                var orders = dbContext.Orders.ToList();
-
-                // Przypisz dane do DataGrid
-                OrdersDataGrid.ItemsSource = orders;
-            }
+            var orders = _orderRepository.GetAllOrders();
+            OrdersDataGrid.ItemsSource = orders;
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)
         {
-
-            StartWindow startWindow = new StartWindow();
-            startWindow.Show();
+            SwitchUser switchUser = new SwitchUser();
+            switchUser.Show();
             this.Close();
         }
     }

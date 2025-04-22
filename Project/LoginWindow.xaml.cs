@@ -1,18 +1,18 @@
-﻿using Project;
-using System.Linq;
-using System.Windows;
+﻿using System.Windows;
 using CoffeeOrderApp.Repositories;
 using CoffeeOrderApp.Models;
+using Project;
 
 namespace CoffeeOrderApp
-
 {
     public partial class LoginWindow : Window
     {
-        
+        private readonly IUserRepository _userRepository;
+
         public LoginWindow()
         {
             InitializeComponent();
+            _userRepository = new UserRepository(new CoffeeDbContext());
         }
 
         private void Login_Click(object sender, RoutedEventArgs e)
@@ -26,22 +26,19 @@ namespace CoffeeOrderApp
                 return;
             }
 
-            using (var db = new CoffeeDbContext())
+            var user = _userRepository.GetUserByCredentials(username, password);
+            if (user != null)
             {
-                var user = db.Users.FirstOrDefault(u => u.UserName == username && u.Password == password);
-                if (user != null)
-                {
-                    MessageBox.Show($"Witaj, {user.UserName}!\nMasz {user.LoyaltyPoints} punktów.");
+                MessageBox.Show($"Witaj, {user.UserName}!\nMasz {user.LoyaltyPoints} punktów.");
 
-                    StartWindow startwindow = new StartWindow();
-                    startwindow.Show();
-                   // main.LoggedUserId = user.Id; 
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("Nieprawidłowa nazwa użytkownika lub hasło.");
-                }
+                StartWindow startwindow = new StartWindow();
+                startwindow.Show();
+
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Nieprawidłowa nazwa użytkownika lub hasło.");
             }
         }
 
@@ -54,17 +51,9 @@ namespace CoffeeOrderApp
 
         private void Back_Click(object sender, RoutedEventArgs e)
         {
-
             SwitchUser switchUser = new SwitchUser();
             switchUser.Show();
             this.Close();
         }
-
-
-
-
-
     }
- }
-   
-
+}

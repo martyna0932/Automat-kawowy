@@ -34,5 +34,17 @@ namespace CoffeeOrderApp.Repositories
         {
             return _context.Users.ToList();
         }
+
+        public User GetUserByCredentials(string username, string password)
+        {
+            return _context.Users.FirstOrDefault(u => u.UserName == username && u.Password == password);
+        }
+
+        public void AddUser(User user)
+        {
+            _context.Users.Add(user);
+            _context.SaveChanges();
+        }
+
     }
 }

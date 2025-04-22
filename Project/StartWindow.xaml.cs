@@ -15,9 +15,7 @@ using System.Windows.Shapes;
 
 namespace Project
 {
-    /// <summary>
-    /// Logika interakcji dla klasy StartWindow.xaml
-    /// </summary>
+  
     public partial class StartWindow : Window
     {
         public StartWindow()
@@ -26,8 +24,8 @@ namespace Project
         }
         private void OrderCoffee_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow coffeeOrderWindow = new MainWindow();  // Tworzy nowe okno zamówienia kawy
-            coffeeOrderWindow.Show();  // Otwiera okno
+            MainWindow coffeeOrderWindow = new MainWindow(); 
+            coffeeOrderWindow.Show();  
             this.Close();  
         }
         private void SwitchUser_Click(object sender, RoutedEventArgs e)

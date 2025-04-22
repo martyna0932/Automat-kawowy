@@ -19,11 +19,12 @@ namespace CoffeeOrderApp
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new CoffeeViewModel();
+            
 
-            // Użycie repozytoriów wstrzykiwanych do konstruktora
             _orderRepository = new OrderRepository(new CoffeeDbContext());
             _userRepository = new UserRepository(new CoffeeDbContext());
+
+            DataContext = new CoffeeViewModel(_userRepository);
         }
 
         private void OrderButton_Click(object sender, RoutedEventArgs e)
@@ -44,21 +45,21 @@ namespace CoffeeOrderApp
 
                 int earnedPoints = viewModel.EarnedPoints;
 
-                // Dodajemy zamówienie przy pomocy repozytorium
+               
                 _orderRepository.AddOrder(order);
 
-                // Aktualizujemy punkty lojalnościowe użytkownika
+              
                 var user = _userRepository.GetUserById(LoggedUserId);
                 if (user != null)
                 {
                     user.LoyaltyPoints += earnedPoints;
-                    _userRepository.UpdateUser(user); // Aktualizujemy użytkownika
+                    _userRepository.UpdateUser(user); 
                 }
 
                 MessageBox.Show($"Zamówienie: {order.Coffee}, {order.Milk}, {order.Syrup}\nCena: {order.Price:C2}\nZyskane punkty: {earnedPoints}", "Potwierdzenie zamówienia");
             }
 
-            // Przechodzimy do ekranu startowego
+           
             StartWindow startWindow = new StartWindow();
             startWindow.Show();
             this.Close();
@@ -67,6 +68,7 @@ namespace CoffeeOrderApp
 
     public class CoffeeViewModel : INotifyPropertyChanged
     {
+        private readonly IUserRepository _userRepository;
         private string _selectedCoffee;
         private string _selectedMilk;
         private string _selectedSyrup;
@@ -82,6 +84,11 @@ namespace CoffeeOrderApp
         public List<string> Syrups { get; set; } = new List<string>();
         public List<string> User { get; set; } = new List<string>();
 
+        public CoffeeViewModel(IUserRepository userRepository)
+        {
+            _userRepository = userRepository;
+            LoadUserChoices();  
+        }
         public string SelectedCoffee
         {
             get => _selectedCoffee;
@@ -150,18 +157,17 @@ namespace CoffeeOrderApp
             Syrups.Add("Caramel");
             Syrups.Add("Hazelnut");
             User.Add("Gość");
-            LoadUsersFromDatabase();
+
+            LoadUsersFromRepository();
         }
 
-        private void LoadUsersFromDatabase()
+  
+        private void LoadUsersFromRepository()
         {
-            using (var db = new CoffeeDbContext())
+            var users = _userRepository.GetAllUsers(); 
+            foreach (var user in users)
             {
-                var users = db.Users.ToList();
-                foreach (var user in users)
-                {
-                    User.Add(user.UserName);
-                }
+                User.Add(user.UserName); 
             }
         }
 
