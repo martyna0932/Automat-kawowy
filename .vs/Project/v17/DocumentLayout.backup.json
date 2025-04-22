@@ -3,24 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\marty\\OneDrive\\Pulpit\\semestr 4\\Programowanie\\Project\\Automat-kawowy\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0C8C0A7A-7E81-476D-B580-9851326455F3}|Project\\Project.csproj|c:\\users\\marty\\onedrive\\pulpit\\semestr 4\\programowanie\\project\\automat-kawowy\\project\\repositories\\iorderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0C8C0A7A-7E81-476D-B580-9851326455F3}|Project\\Project.csproj|solutionrelative:project\\repositories\\iorderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0C8C0A7A-7E81-476D-B580-9851326455F3}|Project\\Project.csproj|c:\\users\\marty\\onedrive\\pulpit\\semestr 4\\programowanie\\project\\automat-kawowy\\project\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C8C0A7A-7E81-476D-B580-9851326455F3}|Project\\Project.csproj|solutionrelative:project\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0C8C0A7A-7E81-476D-B580-9851326455F3}|Project\\Project.csproj|c:\\users\\marty\\onedrive\\pulpit\\semestr 4\\programowanie\\project\\automat-kawowy\\project\\repositories\\orderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0C8C0A7A-7E81-476D-B580-9851326455F3}|Project\\Project.csproj|solutionrelative:project\\repositories\\orderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0C8C0A7A-7E81-476D-B580-9851326455F3}|Project\\Project.csproj|c:\\users\\marty\\onedrive\\pulpit\\semestr 4\\programowanie\\project\\automat-kawowy\\project\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C8C0A7A-7E81-476D-B580-9851326455F3}|Project\\Project.csproj|solutionrelative:project\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0C8C0A7A-7E81-476D-B580-9851326455F3}|Project\\Project.csproj|c:\\users\\marty\\onedrive\\pulpit\\semestr 4\\programowanie\\project\\automat-kawowy\\project\\startwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0C8C0A7A-7E81-476D-B580-9851326455F3}|Project\\Project.csproj|solutionrelative:project\\startwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0C8C0A7A-7E81-476D-B580-9851326455F3}|Project\\Project.csproj|c:\\users\\marty\\onedrive\\pulpit\\semestr 4\\programowanie\\project\\automat-kawowy\\project\\loginwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C8C0A7A-7E81-476D-B580-9851326455F3}|Project\\Project.csproj|solutionrelative:project\\loginwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0C8C0A7A-7E81-476D-B580-9851326455F3}|Project\\Project.csproj|c:\\users\\marty\\onedrive\\pulpit\\semestr 4\\programowanie\\project\\automat-kawowy\\project\\orderhistorywindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0C8C0A7A-7E81-476D-B580-9851326455F3}|Project\\Project.csproj|solutionrelative:project\\orderhistorywindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0C8C0A7A-7E81-476D-B580-9851326455F3}|Project\\Project.csproj|c:\\users\\marty\\onedrive\\pulpit\\semestr 4\\programowanie\\project\\automat-kawowy\\project\\loginwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0C8C0A7A-7E81-476D-B580-9851326455F3}|Project\\Project.csproj|solutionrelative:project\\loginwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0C8C0A7A-7E81-476D-B580-9851326455F3}|Project\\Project.csproj|c:\\users\\marty\\onedrive\\pulpit\\semestr 4\\programowanie\\project\\automat-kawowy\\project\\startwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C8C0A7A-7E81-476D-B580-9851326455F3}|Project\\Project.csproj|solutionrelative:project\\startwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -33,38 +33,38 @@
           "SelectedChildIndex": 2,
           "Children": [
             {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "C:\\Users\\marty\\OneDrive\\Pulpit\\semestr 4\\Programowanie\\Project\\Automat-kawowy\\Project\\Repositories\\UserRepository.cs",
+              "RelativeDocumentMoniker": "Project\\Repositories\\UserRepository.cs",
+              "ToolTip": "C:\\Users\\marty\\OneDrive\\Pulpit\\semestr 4\\Programowanie\\Project\\Automat-kawowy\\Project\\Repositories\\UserRepository.cs",
+              "RelativeToolTip": "Project\\Repositories\\UserRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-22T11:17:58.798Z",
+              "EditorCaption": ""
+            },
+            {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "OrderRepository.cs",
-              "DocumentMoniker": "C:\\Users\\marty\\OneDrive\\Pulpit\\semestr 4\\Programowanie\\Project\\Automat-kawowy\\Project\\Repositories\\OrderRepository.cs",
-              "RelativeDocumentMoniker": "Project\\Repositories\\OrderRepository.cs",
-              "ToolTip": "C:\\Users\\marty\\OneDrive\\Pulpit\\semestr 4\\Programowanie\\Project\\Automat-kawowy\\Project\\Repositories\\OrderRepository.cs",
-              "RelativeToolTip": "Project\\Repositories\\OrderRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-22T11:03:46.181Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "IOrderRepository.cs",
-              "DocumentMoniker": "C:\\Users\\marty\\OneDrive\\Pulpit\\semestr 4\\Programowanie\\Project\\Automat-kawowy\\Project\\Repositories\\IOrderRepository.cs",
-              "RelativeDocumentMoniker": "Project\\Repositories\\IOrderRepository.cs",
-              "ToolTip": "C:\\Users\\marty\\OneDrive\\Pulpit\\semestr 4\\Programowanie\\Project\\Automat-kawowy\\Project\\Repositories\\IOrderRepository.cs",
-              "RelativeToolTip": "Project\\Repositories\\IOrderRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\marty\\OneDrive\\Pulpit\\semestr 4\\Programowanie\\Project\\Automat-kawowy\\Project\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Project\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\marty\\OneDrive\\Pulpit\\semestr 4\\Programowanie\\Project\\Automat-kawowy\\Project\\MainWindow.xaml.cs",
+              "RelativeToolTip": "Project\\MainWindow.xaml.cs",
+              "ViewState": "AgIAALAAAAAAAAAAAAAIwLwAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-22T11:03:42.615Z",
+              "WhenOpened": "2025-04-22T11:10:28.076Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "StartWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\marty\\OneDrive\\Pulpit\\semestr 4\\Programowanie\\Project\\Automat-kawowy\\Project\\StartWindow.xaml.cs",
               "RelativeDocumentMoniker": "Project\\StartWindow.xaml.cs",
@@ -90,7 +90,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "LoginWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\marty\\OneDrive\\Pulpit\\semestr 4\\Programowanie\\Project\\Automat-kawowy\\Project\\LoginWindow.xaml.cs",
               "RelativeDocumentMoniker": "Project\\LoginWindow.xaml.cs",

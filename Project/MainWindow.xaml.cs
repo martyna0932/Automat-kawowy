@@ -15,16 +15,24 @@ namespace CoffeeOrderApp
         public int LoggedUserId { get; set; }
         private readonly IOrderRepository _orderRepository;
         private readonly IUserRepository _userRepository;
+        private readonly CoffeeDbContext _dbContext;
+
 
         public MainWindow()
         {
             InitializeComponent();
-            
 
-            _orderRepository = new OrderRepository(new CoffeeDbContext());
-            _userRepository = new UserRepository(new CoffeeDbContext());
+
+            /* _orderRepository = new OrderRepository(new CoffeeDbContext());
+             _userRepository = new UserRepository(new CoffeeDbContext());
+
+             DataContext = new CoffeeViewModel(_userRepository);*/
+            _dbContext = new CoffeeDbContext();
+            _orderRepository = new OrderRepository(_dbContext);
+            _userRepository = new UserRepository(_dbContext);
 
             DataContext = new CoffeeViewModel(_userRepository);
+
         }
 
         private void OrderButton_Click(object sender, RoutedEventArgs e)
